@@ -37,11 +37,10 @@ def plot(year, stat1, stat2, points):
 	plt.savefig("graphs/"+stat1+"-"+stat2+"-"+str(year)+".png")
 	plt.show()
 
-def run(info):
+def scatter(info):
 	sequel = sql(info)
 	data = getdata(sequel)
 	p = points(data)
 	plot(info[0], data[2][0][0], data[3][0][0], p)
 
-info = [2014, "NY.GDP.PCAP.KD", "FP.CPI.TOTL.ZG"]
-run(info)
+#info = [2014, "NY.GDP.PCAP.KD", "FP.CPI.TOTL.ZG"]

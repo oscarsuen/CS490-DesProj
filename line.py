@@ -33,8 +33,7 @@ def plot(info, result):
 	plt.savefig("graphs/"+result[1][0]+"-"+result[2][0]+"-"+str(info[0])+"-"+str(info[1])+".png")
 	plt.show()
 
-def run(info):
+def line(info):
 	plot(info, getdata(sql(info)))
 
-info = [1960, 2014, "USA", "NY.GDP.MKTP.KD"]
-run(info)
+#info = [1960, 2014, "USA", "NY.GDP.MKTP.KD"]

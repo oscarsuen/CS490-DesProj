@@ -16,8 +16,7 @@ def sql(stat):
 	return rt
 
 
-def run(query):
+def stat(query):
 	print(tabulate(getdata(sql(query)), headers=["Series Code", "Topic", "Indicator Name"]))
 
-query = "Foreign Direct Investment"
-run(query)
+#query = "GDP"

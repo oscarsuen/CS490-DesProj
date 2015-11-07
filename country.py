@@ -19,8 +19,7 @@ def sql(country):
 	rt = rt + "`Country Code` LIKE '%"+country+"%'"
 	return rt
 
-def run(query):
+def country(query):
 	print(tabulate(getdata(sql(query)), headers=["Country Code", "Table Name", "Long Name"]))
 
-query = "U.S."
-run(query)
+#query = "U.S."
