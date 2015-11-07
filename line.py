@@ -30,6 +30,7 @@ def plot(info, result):
 	plt.xlabel('Year')
 	plt.ylabel(result[2][0])
 	plt.title(result[1][0]+" "+result[2][0])
+	plt.savefig("graphs/"+result[1][0]+"-"+result[2][0]+"-"+str(info[0])+"-"+str(info[1])+".png")
 	plt.show()
 
 def run(info):
