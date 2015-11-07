@@ -28,12 +28,14 @@ def sql(info):
 
 def plot(info, result):
 	plt.plot(range(info[0],info[1]),result[0][:-1])
-	plt.xlim(info[0],info[1])
+	plt.xlim(info[0],info[1]-1)
 	plt.xlabel('Year')
 	plt.ylabel(result[2][0])
 	plt.title(result[1][0]+" "+result[2][0])
 	plt.show()
 
-info = [1960, 2014, "USA", "NY.GDP.MKTP.KD"]
+def run(info):
+	plot(info, getdata(sql(info)))
 
-plot(info, getdata(sql(info)))
+info = [1960, 2014, "USA", "NY.GDP.MKTP.KD"]
+run(info)
