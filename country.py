@@ -20,6 +20,9 @@ def sql(country):
 	return rt
 
 def country(query):
-	print(tabulate(getdata(sql(query)), headers=["Country Code", "Table Name", "Long Name"]))
+	array = getdata(sql(query))
+	print(tabulate(array, headers=["Country Code", "Table Name", "Long Name"]))
+	print('\n')
+	return array
 
 #query = "U.S."

@@ -17,6 +17,9 @@ def sql(stat):
 
 
 def stat(query):
-	print(tabulate(getdata(sql(query)), headers=["Series Code", "Topic", "Indicator Name"]))
+	array = getdata(sql(query))
+	print(tabulate(array, headers=["Series Code", "Topic", "Indicator Name"]))
+	print('\n')
+	return array
 
 #query = "GDP"

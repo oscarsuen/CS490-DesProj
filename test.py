@@ -1,6 +1,9 @@
 from line import line
 from scatter import scatter
 from country import country
-from stat import stat
+from statistic import stat
 
-stat("Inflation")
+stat1 = stat("Inflation")
+stat2 = stat("Unemployment, total")
+
+scatter([2012, stat1[0][0], stat2[0][0]])
