@@ -9,7 +9,7 @@ def sql(country):
 	rt = rt + "`Country Code` LIKE '%"+country+"%'"
 	return rt
 
-def country(query):
+def searchcountry(query):
 	array = getdata(sql(query))
 	print(tabulate(array, headers=["Country Code", "Table Name", "Long Name"]))
 	print('\n')

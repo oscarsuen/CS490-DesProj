@@ -23,11 +23,10 @@ def plot(country, stat1, stat2, points):
 	plt.savefig("graphs/"+stat1+"-"+stat2+"-"+country+".png")
 	plt.show()
 
-def scatter(info):
+def scatterplotcountry(info):
 	sequel = sql(info)
 	data = getdata(sequel)
 	p = points(data)
 	plot(info[0], data[0][0][2], data[1][0][2], p)
 
-info = ["USA", "SL.UEM.TOTL.ZS", "FP.CPI.TOTL.ZG"]
-scatter(info)
+#info = ["USA", "SL.UEM.TOTL.ZS", "FP.CPI.TOTL.ZG"]

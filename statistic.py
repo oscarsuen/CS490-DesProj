@@ -3,13 +3,13 @@ from tabulate import tabulate
 
 def sql(stat):
 	rt = "SELECT `Series Code`, `Topic`, `Indicator Name` FROM series WHERE `Indicator Name` LIKE '%"+stat+"%'"
-	return rt
+	return [rt]
 
-
-def stat(query):
+def searchstat(query):
 	array = getdata(sql(query))
-	print(tabulate(array, headers=["Series Code", "Topic", "Indicator Name"]))
+	print(tabulate(array[0], headers=["Series Code", "Topic", "Indicator Name"]))
 	print('\n')
 	return array
 
-#query = "GDP"
+query = "GDP"
+searchstat(query)

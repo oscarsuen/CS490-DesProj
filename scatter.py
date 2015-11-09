@@ -25,7 +25,7 @@ def plot(year, stat1, stat2, points):
 	plt.savefig("graphs/"+stat1+"-"+stat2+"-"+str(year)+".png")
 	plt.show()
 
-def scatter(info):
+def scatterplotyear(info):
 	sequel = sql(info)
 	data = getdata(sequel)
 	p = points(data)

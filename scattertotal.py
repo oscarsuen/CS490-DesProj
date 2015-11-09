@@ -24,11 +24,10 @@ def plot(stat1, stat2, points):
 	plt.savefig("graphs/"+stat1+"-"+stat2+".png")
 	plt.show()
 
-def scatter(info):
+def scatterplottotal(info):
 	sequel = sql(info)
 	data = getdata(sequel)
 	p = points(data)
 	plot(data[0][0][2], data[1][0][2], p)
 
-info = ["SL.UEM.TOTL.ZS", "FP.CPI.TOTL.ZG"]
-scatter(info)
+#info = ["SL.UEM.TOTL.ZS", "FP.CPI.TOTL.ZG"]
