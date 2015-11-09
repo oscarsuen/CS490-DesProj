@@ -11,5 +11,4 @@ def searchstat(query):
 	print('\n')
 	return array
 
-query = "GDP"
-searchstat(query)
+#query = "GDP"
