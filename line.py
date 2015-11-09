@@ -1,17 +1,5 @@
-import pymysql.cursors
+from database import getdata
 import matplotlib.pyplot as plt
-
-def getdata(sql):
-	co = pymysql.connect(host='localhost', user='root', db='econtest')
-	rt = []
-	try:
-		with co.cursor() as cursor:
-			for i in sql:
-				cursor.execute(i)
-				rt.append(cursor.fetchone())
-	finally:
-		co.close()
-		return rt
 
 def sql(info):
 	columns = ""
@@ -25,15 +13,16 @@ def sql(info):
 	return [result, country, stat]
 
 def plot(info, result):
-	plt.plot(range(info[0],info[1]),result[0][:-1])
+	plt.plot(range(info[0],info[1]),result[0][0][:-1])
 	plt.xlim(info[0],info[1]-1)
 	plt.xlabel('Year')
-	plt.ylabel(result[2][0])
-	plt.title(result[1][0]+" "+result[2][0])
-	plt.savefig("graphs/"+result[1][0]+"-"+result[2][0]+"-"+str(info[0])+"-"+str(info[1])+".png")
+	plt.ylabel(result[2][0][0])
+	plt.title(result[1][0][0]+" "+result[2][0][0])
+	plt.savefig("graphs/"+result[1][0][0]+"-"+result[2][0][0]+"-"+str(info[0])+"-"+str(info[1])+".png")
 	plt.show()
 
 def line(info):
 	plot(info, getdata(sql(info)))
 
-#info = [1960, 2014, "USA", "NY.GDP.MKTP.KD"]
+info = [1960, 2014, "USA", "NY.GDP.MKTP.KD"]
+line(info)

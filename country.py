@@ -1,15 +1,5 @@
-import pymysql.cursors
+from database import getdata
 from tabulate import tabulate
-
-def getdata(sql):
-	co = pymysql.connect(host='localhost', user='root', db='econtest')
-	try:
-		with co.cursor() as cursor:
-			cursor.execute(sql)
-			rt = cursor.fetchall()
-	finally:
-		co.close()
-		return rt
 
 def sql(country):
 	rt = "SELECT `Country Code`, `Table Name`, `Long Name` FROM country WHERE "

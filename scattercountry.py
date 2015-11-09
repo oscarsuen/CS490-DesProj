@@ -1,17 +1,5 @@
-import pymysql.cursors
+from database import getdata
 import matplotlib.pyplot as plt
-
-def getdata(sql):
-	co = pymysql.connect(host='localhost', user='root', db='econtest')
-	rt = []
-	try:
-		with co.cursor() as cursor:
-			for i in sql:
-				cursor.execute(i)
-				rt.append(cursor.fetchone())
-	finally:
-		co.close()
-		return rt
 
 def sql(info):
 	result1 = "SELECT * FROM data WHERE `Country Code`='"+info[0]+"' AND `Indicator Code`='"+info[1]+"'"
@@ -21,8 +9,8 @@ def sql(info):
 def points(array):
 	p = []
 	for i in range(4, 60):
-		t1 = array[0][i]
-		t2 = array[1][i]
+		t1 = array[0][0][i]
+		t2 = array[1][0][i]
 		if t1 != 0 and t2 != 0:
 			p.append([t1,t2])
 	return p
@@ -39,7 +27,7 @@ def scatter(info):
 	sequel = sql(info)
 	data = getdata(sequel)
 	p = points(data)
-	plot(info[0], data[0][2], data[1][2], p)
+	plot(info[0], data[0][0][2], data[1][0][2], p)
 
 info = ["USA", "SL.UEM.TOTL.ZS", "FP.CPI.TOTL.ZG"]
 scatter(info)
