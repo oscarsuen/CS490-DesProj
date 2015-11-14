@@ -1,29 +1,8 @@
 import tkinter as tk
-
-class Application(tk.Frame):
-    def __init__(self, master=None):
-        tk.Frame.__init__(self, master)
-        self.pack()
-        self.createWidgets()
-
-    def createWidgets(self):
-        self.hi_there = tk.Button(self)
-        self.hi_there["text"] = "Hello World\n(click me)"
-        self.hi_there["command"] = self.say_hi
-        self.photo = tk.PhotoImage(file="~/Desktop/GitHub/CS490-DesProj/graphs/image.gif")
-        self.photo.pack()
-        self.hi_there.pack(side="top")
-
-        self.QUIT = tk.Button(self, text="QUIT", fg="red",
-                                            command=root.destroy)
-        self.QUIT.pack(side="bottom")
-
-    def say_hi(self):
-        print("hi there, everyone!")
-
-
-
-
 root = tk.Tk()
-app = Application(master=root)
-app.mainloop()
+root.title("display a website image")
+photo = tk.PhotoImage(file= r"~/Desktop/Github/CS490-DesProj/graphs/image.gif")
+cv = tk.Canvas()
+cv.pack(side='top', fill='both', expand='yes')
+cv.create_image(10, 10, image=photo, anchor='nw')
+root.mainloop()
