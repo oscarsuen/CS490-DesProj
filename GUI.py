@@ -1,8 +1,13 @@
-import tkinter as tk
-root = tk.Tk()
-root.title("display a website image")
-photo = tk.PhotoImage(file= r"~/Desktop/Github/CS490-DesProj/graphs/image.gif")
-cv = tk.Canvas()
-cv.pack(side='top', fill='both', expand='yes')
-cv.create_image(10, 10, image=photo, anchor='nw')
+from tkinter import *
+
+root = Tk()
+
+logo = PhotoImage(file="../images/python_logo_small.gif")
+w1 = Label(root, image=logo).pack(side="right")
+explanation = "Hello World"
+w2 = Label(root, 
+           justify=LEFT,
+           padx = 10, 
+           text=explanation).pack(side="left")
 root.mainloop()
+
