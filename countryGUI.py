@@ -14,8 +14,12 @@ def func(self):
 
 root = Tk()
 
-search = Entry(root)
-search.pack()
+search = Entry(root, width=50)
+search.grid(row=0,column=0)
+
+enter = Button(root, text="Search")
+enter.bind('<Button-1>', func)
+enter.grid(row=0,column=1)
 
 root.bind("<Return>", func)
 
@@ -27,6 +31,6 @@ table.heading("table", text="Name")
 table.column("long", width=400, anchor="w")
 table.heading("long", text="Long Name")
 
-table.pack()
+table.grid(row=1, column=0, columnspan=2)
 
 root.mainloop()
