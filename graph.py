@@ -16,4 +16,4 @@ def generate(gtype, data):
 		scatterplottotal(data)
 
 	im = Image.open("graphs/image.png")
-	im.save("graphs/imagetest.gif","GIF")
+	im.save("graphs/image.gif","GIF")
