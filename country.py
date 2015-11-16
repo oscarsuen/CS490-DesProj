@@ -7,12 +7,15 @@ def sql(country):
 	rt = rt + "`Table Name` LIKE '%"+country+"%' OR "
 	rt = rt + "`Short Name` LIKE '%"+country+"%' OR "
 	rt = rt + "`Country Code` LIKE '%"+country+"%'"
-	return rt
+	return [rt]
 
 def searchcountry(query):
 	array = getdata(sql(query))
-	print(tabulate(array, headers=["Country Code", "Table Name", "Long Name"]))
+	print(tabulate(array[0], headers=["Country Code", "Table Name", "Long Name"]))
 	print('\n')
-	return array
+	return array[0]
 
-#query = "U.S."
+query = "United"
+a = searchcountry(query)
+print('\n')
+print(a)
