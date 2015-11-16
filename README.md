@@ -1,2 +1,7 @@
-# CS490-DesProj
-CS490 Design Project
+# CSC490 Design Project
+By Lily Friedberg and Oscar Suen
+
+##Package Requirements
+- tkinter (installed with OS X)
+- PIL (installed with OS X)
+- matplotlib
