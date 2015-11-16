@@ -15,5 +15,5 @@ def generate(gtype, data):
 	elif gtype == "scattertotal":
 		scatterplottotal(data)
 
-	im = Image.open("graphs/image.png")
-	im.save("graphs/image.gif","GIF")
+	im = Image.open("../graphs/image.png")
+	im.save("../graphs/image.gif","GIF")

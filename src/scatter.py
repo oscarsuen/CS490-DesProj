@@ -22,8 +22,8 @@ def plot(year, stat1, stat2, points):
 	plt.xlabel(stat1)
 	plt.ylabel(stat2)
 	plt.title(stat1+" vs. "+stat2+" in "+str(year))
-	#plt.savefig("graphs/"+stat1+"-"+stat2+"-"+str(year)+".png")
-	plt.savefig("graphs/image.png")
+	#plt.savefig("../graphs/"+stat1+"-"+stat2+"-"+str(year)+".png")
+	plt.savefig("../graphs/image.png")
 	#plt.show()
 
 def scatterplotyear(info):
