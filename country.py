@@ -1,5 +1,5 @@
 from database import getdata
-from tabulate import tabulate
+#from tabulate import tabulate
 
 def sql(country):
 	rt = "SELECT `Country Code`, `Table Name`, `Long Name` FROM country WHERE "
@@ -11,7 +11,7 @@ def sql(country):
 
 def searchcountry(query):
 	array = getdata(sql(query))
-	print(tabulate(array[0], headers=["Country Code", "Table Name", "Long Name"]))
+	#print(tabulate(array[0], headers=["Country Code", "Table Name", "Long Name"]))
 	return array[0]
 
 #query = "United"
