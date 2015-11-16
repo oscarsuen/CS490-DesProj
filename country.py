@@ -12,10 +12,6 @@ def sql(country):
 def searchcountry(query):
 	array = getdata(sql(query))
 	print(tabulate(array[0], headers=["Country Code", "Table Name", "Long Name"]))
-	print('\n')
 	return array[0]
 
-query = "United"
-a = searchcountry(query)
-print('\n')
-print(a)
+#query = "United"
