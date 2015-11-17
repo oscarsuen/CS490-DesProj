@@ -1,4 +1,5 @@
 import tkinter
+#from graph import generate
 from tkinter import *
 
 root = Tk()
@@ -18,8 +19,13 @@ w2 = Button(master=root,
 
 searchbox = Tk()
 
-csearch = Label(master = searchbox, text = "Search for a country").grid(row =1, column=1) #what is the command
+#generate(type=line, scatteryear, scattercountry, scattertotal; data)
+
+
+csearch = Label(master = searchbox, text = "Search for a country").grid(row =1, column=1)
 ssearch = Label(master = searchbox, text = "Search for a statistic" ).grid(row =2, column=1)
+e1 = Entry(master = searchbox).grid(row=1, column=2)
+e2 = Entry(master = searchbox).grid(row=2, column=2)
 
 
 root.mainloop()
