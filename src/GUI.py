@@ -19,6 +19,20 @@ w2 = Button(master=root,
 
 searchbox = Tk()
 
+def linepick():
+	chooseline = Tk()
+	y1p = Label(master = chooseline, text = "Beginning year").grid(row=1, column=1)
+	y1 = Entry(master = chooseline).grid(row=1,column=2)
+	y2p = Label(master = chooseline, text = "End year").grid(row=2, column=1)
+	y2 = Entry(master = chooseline).grid(row=2,column=2)
+	c = Label(master = chooseline, text = "Beginning year").grid(row=3, column=1)
+	cp = Entry(master = chooseline).grid(row=3,column=2)
+	d = Label(master = chooseline, text = "Beginning year").grid(row=4, column=1)
+	dp = Entry(master = chooseline).grid(row=4,column=2)
+
+
+
+
 #generate(type=line, scatteryear, scattercountry, scattertotal; data)
 
 
