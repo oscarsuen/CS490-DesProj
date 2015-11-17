@@ -8,7 +8,7 @@ from matplotlib.figure import Figure
 
 import tkinter as Tk
 
-from line import linegraph
+from scatter import scatterplotyear
 
 
 def destroy(e):
@@ -21,8 +21,8 @@ root.wm_title("Embedding in TK")
 f = Figure(figsize=(5, 4), dpi=100)
 a = f.add_subplot(111)
 
-info = [1960, 2014, "USA", "NY.GDP.MKTP.KD"]
-linegraph(info, a)
+info = [2014, "NY.GDP.PCAP.KD", "FP.CPI.TOTL.ZG"]
+scatterplotyear(info, a)
 
 
 

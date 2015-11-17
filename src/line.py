@@ -1,5 +1,5 @@
 from database import getdata
-import matplotlib as plt
+import matplotlib
 
 def sql(info):
 	columns = ""
