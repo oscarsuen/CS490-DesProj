@@ -1,19 +1,14 @@
-from PIL import Image
-
 from line import linegraph
 from scatter import scatterplotyear
 from scattercountry import scatterplotcountry
 from scattertotal import scatterplottotal
 
-def generate(gtype, data):
+def generate(gtype, data, figure):
 	if gtype == "line":
-		linegraph(data)
+		linegraph(data, figure)
 	elif gtype == "scatteryear":
-		scatterplotyear(data)
+		scatterplotyear(data, figure)
 	elif gtype == "scattercountry":
-		scatterplotcountry(data)
+		scatterplotcountry(data, figure)
 	elif gtype == "scattertotal":
-		scatterplottotal(data)
-
-	im = Image.open("../graphs/image.png")
-	im.save("../graphs/image.gif","GIF")
+		scatterplottotal(data, figure)
