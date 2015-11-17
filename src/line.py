@@ -1,5 +1,5 @@
 from database import getdata
-import matplotlib.pyplot as plt
+import matplotlib as plt
 
 def sql(info):
 	columns = ""
@@ -12,17 +12,14 @@ def sql(info):
 	stat = "SELECT `Indicator Name` FROM series WHERE `Series Code`='"+info[3]+"'"
 	return [result, country, stat]
 
-def plot(info, result):
-	plt.plot(range(info[0],info[1]),result[0][0][:-1])
-	plt.xlim(info[0],info[1]-1)
-	plt.xlabel('Year')
-	plt.ylabel(result[2][0][0])
-	plt.title(result[1][0][0]+" "+result[2][0][0])
-	#plt.savefig("../graphs/"+result[1][0][0]+"-"+result[2][0][0]+"-"+str(info[0])+"-"+str(info[1])+".png")
-	plt.savefig("../graphs/image.png")
-	#plt.show()
+def plot(info, result, figure):
+	figure.plot(range(info[0],info[1]),result[0][0][:-1])
+	figure.set_xlim(info[0],info[1]-1)
+	figure.set_xlabel('Year')
+	figure.set_ylabel(result[2][0][0])
+	figure.set_title(result[1][0][0]+" "+result[2][0][0])
 
-def linegraph(info):
-	plot(info, getdata(sql(info)))
+def linegraph(info, figure):
+	plot(info, getdata(sql(info)), figure)
 
 #info = [1960, 2014, "USA", "NY.GDP.MKTP.KD"]
