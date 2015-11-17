@@ -8,7 +8,10 @@ from matplotlib.figure import Figure
 
 import tkinter as Tk
 
+from line import linegraph
 from scatter import scatterplotyear
+from scattercountry import scatterplotcountry
+from scattertotal import scatterplottotal
 
 
 def destroy(e):
@@ -18,11 +21,11 @@ root = Tk.Tk()
 root.wm_title("Embedding in TK")
 
 
-f = Figure(figsize=(5, 4), dpi=100)
+f = Figure(figsize=(7, 6), dpi=100)
 a = f.add_subplot(111)
 
-info = [2014, "NY.GDP.PCAP.KD", "FP.CPI.TOTL.ZG"]
-scatterplotyear(info, a)
+info = [1960, 2014, "USA", "NY.GDP.MKTP.KD"]
+linegraph(info, a)
 
 
 
@@ -38,11 +41,13 @@ a.set_ylabel('Y label')
 # a tk.DrawingArea
 canvas = FigureCanvasTkAgg(f, master=root)
 canvas.show()
-canvas.get_tk_widget().pack(side=Tk.TOP, fill=Tk.BOTH, expand=1)
+canvas.get_tk_widget().grid(row=1,column=1, padx=2, pady=2)
+#canvas.get_tk_widget().pack(side=Tk.TOP, fill=Tk.BOTH, expand=1)
 
-canvas._tkcanvas.pack(side=Tk.TOP, fill=Tk.BOTH, expand=1)
+canvas._tkcanvas.grid(row=1,column=0,padx=2, pady=2)
+#canvas._tkcanvas.pack(side=Tk.TOP, fill=Tk.BOTH, expand=1)
 
 button = Tk.Button(master=root, text='Quit', command=sys.exit)
-button.pack(side=Tk.BOTTOM)
+button.grid(row=0,column=0, padx=2, pady=2)
 
 Tk.mainloop()
