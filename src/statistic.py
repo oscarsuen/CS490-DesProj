@@ -7,7 +7,7 @@ def sql(stat):
 
 def searchstat(query):
 	array = getdata(sql(query))
-	print(tabulate(array[0], headers=["Series Code", "Topic", "Indicator Name"]))
-	return array
+	#print(tabulate(array[0], headers=["Series Code", "Topic", "Indicator Name"]))
+	return array[0]
 
 #query = "GDP"
