@@ -1,5 +1,5 @@
 from database import getdata
-from tabulate import tabulate
+#from tabulate import tabulate
 
 def sql(stat):
 	rt = "SELECT `Series Code`, `Topic`, `Indicator Name` FROM series WHERE `Indicator Name` LIKE '%"+stat+"%'"

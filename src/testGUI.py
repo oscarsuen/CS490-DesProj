@@ -1,91 +1,89 @@
 import matplotlib
 matplotlib.use('TkAgg')
-
-import sys
-
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
 
-import tkinter as Tk
-from statGUI import sGUI
-from countryGUI import cGUI
-from line import linegraph
-from scatter import scatterplotyear
-from scattercountry import scatterplotcountry
-from scattertotal import scatterplottotal
+from tkinter import *
 
+from graph import generate
+from countryGUI import CountryDialog
+from statGUI import StatDialog
 
-def destroy(e):
-    sys.exit()
+class MainApplication:
+	def __init__(self, master):
+		self.master = master
+		self.master.wm_title("Graph Test")
+		self.initcanvas()
+		self.initsidebar()
 
-root = Tk.Tk()
-root.wm_title("Embedding in TK")
+	def opencountrydialog(self):
+		self.newwindow = Toplevel(self.master)
+		coundia = CountryDialog(self.newwindow, self)
 
+	def openstatdialog(self):
+		self.newwindow2 = Toplevel(self.master)
+		statdia = StatDialog(self.newwindow2, self)
 
-f = Figure(figsize=(7, 6), dpi=100)
-a = f.add_subplot(111)
+	def gengraph(self):
+		b = self.beginscale
+		e = self.endscale
+		info = [b.get(), e.get(), self.ccode, self.scode]
+		print(info)
+		self.f.clf()
+		self.f = Figure(figsize=(8, 6), dpi=100)
+		self.a = self.f.add_subplot(111)
+		generate("line", info, self.a)
+		self.canvas = FigureCanvasTkAgg(self.f, master=self.master)
+		self.canvas.show()
+		self.canvas.get_tk_widget().pack(side=TOP, fill=BOTH, expand=1)
+		
+		self.canvas._tkcanvas.grid(row=0, column=1, rowspan=3)
+	
+	def initcanvas(self):
+		self.f = Figure(figsize=(8, 6), dpi=100)
+		self.a = self.f.add_subplot(111)
+		
+		self.canvas = FigureCanvasTkAgg(self.f, master=self.master)
+		self.canvas.show()
+		self.canvas.get_tk_widget().pack(side=TOP, fill=BOTH, expand=1)
+		
+		self.canvas._tkcanvas.grid(row=0, column=1, rowspan=3)
+	
+	def initsidebar(self):
+		frame = Frame(self.master)
+		frame.grid(row=0, column=0)
+		
+		beginlabel = Label(frame, text="Begin Year")
+		self.beginscale = Scale(frame, from_=1960, to=2015, orient=HORIZONTAL)
+		self.beginscale.set(1960)
+		beginlabel.pack()
+		self.beginscale.pack()
 
-info = [1960, 2014, "USA", "NY.GDP.MKTP.KD"]
-linegraph(info, a)
+		endlabel = Label(frame, text="End Year")
+		self.endscale = Scale(frame, from_=1960, to=2015, orient=HORIZONTAL)
+		self.endscale.set(2015)
+		endlabel.pack()
+		self.endscale.pack()
 
+		countrybutton = Button(frame, text="Select Country", command=self.opencountrydialog)
+		self.country = StringVar()
+		countrylabel = Label(frame, textvariable=self.country)
+		countrybutton.pack()
+		countrylabel.pack()
 
+		statbutton = Button(frame, text="Select Statistic", command=self.openstatdialog)
+		self.stat = StringVar()
+		statlabel = Label(frame, textvariable=self.stat)
+		statbutton.pack()
+		statlabel.pack()
 
-#t = arange(0.0, 3.0, 0.01)
-#s = sin(2*pi*t)
-"""
-a.plot(t, s)
-a.set_title('Tk embedding')
-a.set_xlabel('X axis label')
-a.set_ylabel('Y label')
-"""
+		graphbutton = Button(frame, text="Graph!", command=self.gengraph)
+		graphbutton.pack()
 
-# a tk.DrawingArea
-canvas = FigureCanvasTkAgg(f, master=root)
-canvas.show()
-canvas.get_tk_widget().grid(row=1,column=1, padx=2, pady=2, rowspan=5, columnspan=5)
-#canvas.get_tk_widget().pack(side=Tk.TOP, fill=Tk.BOTH, expand=1)
-#root = Tk.Frame(master=root).grid(row=0,column=0)
+def main(): 
+	root = Tk()
+	app = MainApplication(root)
+	root.mainloop()
 
-canvas._tkcanvas.grid(row=1,column=0,padx=2, pady=2, rowspan=5, columnspan=7)
-#canvas._tkcanvas.pack(side=Tk.TOP, fill=Tk.BOTH, expand=1)
-
-button = Tk.Button(master=root, text='Quit', command=sys.exit)
-button.grid(row=0,column=6, padx=2, pady=2)
-
-def cl():
-	print("country line")
-
-def sy():
-	print("scatter year")
-
-def sc():
-	print("scattercountry")
-
-
-def st():
-	print("scatter total")
-
-def test():
-	print("hi friend")
-
-
-w1 = Tk.Button(master=root, 
-           text="country line",
-           command = test).grid(row=0, column=1)
-w2 = Tk.Button(master=root, 
-           text="scatter year",
-           command = test).grid(row=0, column=2)
-w3 = Tk.Button(master=root, 
-           text="scatter country",
-           command = test).grid(row=0, column=3)
-w4 = Tk.Button(master=root, 
-           text="scatter total",
-           command = test).grid(row=0, column=4)
-s1 = Tk.Button(master=root, 
-           text="search countries",
-           command = test).grid(row=0, column=5)
-s2 = Tk.Button(master=root, 
-           text="search statistics",
-           command = sGUI).grid(row=0, column=1)
-
-Tk.mainloop()
+if __name__ == '__main__':
+	main()
