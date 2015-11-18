@@ -24,9 +24,9 @@ class StatDialog():
 		self.table.column("code", width=50, anchor="e")
 		self.table.heading("code", text="Code")
 		self.table.column("topic", width=200, anchor="w")
-		self.table.heading("topic", text="Name")
+		self.table.heading("topic", text="Topic")
 		self.table.column("stat", width=400, anchor="w")
-		self.table.heading("stat", text="Long Name")
+		self.table.heading("stat", text="Statistic")
 
 		self.table.bind("<Double-1>", self.doubleclick)		
 		self.table.grid(row=1, column=0, columnspan=2)
@@ -43,5 +43,5 @@ class StatDialog():
 	def doubleclick(self, event):
 		item = self.table.item(self.table.focus())
 		self.top.scode=item['values'][0]
-		self.top.stat.set(item['values'][1])
+		self.top.stat.set(item['values'][2])
 		self.master.destroy()
