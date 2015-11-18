@@ -1,5 +1,4 @@
 import tkinter
-#from graph import generate
 from tkinter import *
 
 root = Tk()

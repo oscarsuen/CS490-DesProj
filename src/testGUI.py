@@ -41,13 +41,23 @@ a.set_ylabel('Y label')
 # a tk.DrawingArea
 canvas = FigureCanvasTkAgg(f, master=root)
 canvas.show()
-canvas.get_tk_widget().grid(row=1,column=1, padx=2, pady=2)
+canvas.get_tk_widget().grid(row=1,column=1, padx=2, pady=2, rowspan=5, columnspan=5)
 #canvas.get_tk_widget().pack(side=Tk.TOP, fill=Tk.BOTH, expand=1)
+buttonpanel = Tk.Frame(master=root).grid(row=0,column=0)
 
-canvas._tkcanvas.grid(row=1,column=0,padx=2, pady=2)
+canvas._tkcanvas.grid(row=1,column=0,padx=2, pady=2, rowspan=5, columnspan=5)
 #canvas._tkcanvas.pack(side=Tk.TOP, fill=Tk.BOTH, expand=1)
 
-button = Tk.Button(master=root, text='Quit', command=sys.exit)
+button = Tk.Button(master=buttonpanel, text='Quit', command=sys.exit)
 button.grid(row=0,column=0, padx=2, pady=2)
+
+def test():
+	print("hi")
+
+
+w2 = Tk.Button(master=buttonpanel, 
+           padx = 5, 
+           text="ey",
+           command = test).grid(row=0, column=1)
 
 Tk.mainloop()
