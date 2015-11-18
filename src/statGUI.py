@@ -33,4 +33,7 @@ table.heading("long", text="Indicator Name")
 
 table.grid(row=1, column=0, columnspan=2)
 
-root.mainloop()
+def sGUI():
+	root.mainloop()
+
+sGUI()

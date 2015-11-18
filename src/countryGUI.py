@@ -12,6 +12,9 @@ def func(self):
 	for i in result:
 		table.insert("", "end", values=i)
 
+def cGUI():
+	root.mainloop()
+
 root = Tk()
 
 search = Entry(root, width=50)
@@ -33,4 +36,4 @@ table.heading("long", text="Long Name")
 
 table.grid(row=1, column=0, columnspan=2)
 
-root.mainloop()
+#cGUI()

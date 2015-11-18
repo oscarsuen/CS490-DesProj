@@ -7,7 +7,8 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
 
 import tkinter as Tk
-
+from statGUI import sGUI
+from countryGUI import cGUI
 from line import linegraph
 from scatter import scatterplotyear
 from scattercountry import scatterplotcountry
@@ -51,8 +52,21 @@ canvas._tkcanvas.grid(row=1,column=0,padx=2, pady=2, rowspan=5, columnspan=7)
 button = Tk.Button(master=root, text='Quit', command=sys.exit)
 button.grid(row=0,column=6, padx=2, pady=2)
 
+def cl():
+	print("country line")
+
+def sy():
+	print("scatter year")
+
+def sc():
+	print("scattercountry")
+
+
+def st():
+	print("scatter total")
+
 def test():
-	print("hi")
+	print("hi friend")
 
 
 w1 = Tk.Button(master=root, 
@@ -72,6 +86,6 @@ s1 = Tk.Button(master=root,
            command = test).grid(row=0, column=5)
 s2 = Tk.Button(master=root, 
            text="search statistics",
-           command = test).grid(row=0, column=1)
+           command = sGUI).grid(row=0, column=1)
 
 Tk.mainloop()

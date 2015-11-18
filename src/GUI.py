@@ -3,7 +3,7 @@ from tkinter import *
 
 root = Tk()
 
-w1 = Label(master = root, image=logo).grid(row=1, column=0)
+#w1 = Label(master = root, image=logo).grid(row=1, column=0)
 explanation = "Hello World"
 
 def test():
