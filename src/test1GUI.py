@@ -38,6 +38,9 @@ class MainApplication:
 		self.canvas.get_tk_widget().pack(side=TOP, fill=BOTH, expand=1)
 		
 		self.canvas._tkcanvas.grid(row=0, column=1, rowspan=3)
+
+	def genscatter():
+		s1 = self.
 	
 	def initcanvas(self):
 		self.f = Figure(figsize=(8, 6), dpi=100)
@@ -83,7 +86,34 @@ class MainApplication:
 
 		frame1.grid(row=0, column=0)
 
+	def initscatterwindow(self):
 
+		self.scatterwindow = Toplevel(self.master)
+
+		frame2 = Frame(master = self.scatterwindow)
+
+		beginlabel1 = Label(frame2, text="Year")
+		self.beginscale1 = Scale(frame2, from_=1960, to=2015, orient=HORIZONTAL)
+		self.beginscale1.set(1960)
+		beginlabel1.pack()
+		self.beginscale1.pack()
+
+		countrybutton1 = Button(frame2, text="Select Statistic 1", command=self.opencountrydialog)
+		self.stat1 = StringVar()
+		countrylabel1 = Label(frame2, textvariable=self.stat1)
+		countrybutton1.pack()
+		countrylabel1.pack()
+
+		statbutton1 = Button(frame2, text="Select Statistic 2", command=self.openstatdialog)
+		self.stat2 = StringVar()
+		statlabel1 = Label(frame2, textvariable=self.stat2)
+		statbutton1.pack()
+		statlabel1.pack()
+
+		graphbutton = Button(frame2, text="Graph!", command=self.gengraph)
+		graphbutton.pack()
+
+		frame2.grid(row=0, column=0)
 
 
 
@@ -94,7 +124,7 @@ class MainApplication:
 		graphbutton = Button(frame, text="Line Graph", command=self.initlinewindow)
 		graphbutton.pack()
 
-		scatterbutton = Button(frame, text="Scatter Year", command=self.gengraph)
+		scatterbutton = Button(frame, text="Scatter Year", command=self.initscatterwindow)
 		scatterbutton.pack()
 
 		scattercountrybutton = Button(frame, text="Scatter Country", command=self.gengraph)
