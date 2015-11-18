@@ -49,38 +49,52 @@ class MainApplication:
 		
 		self.canvas._tkcanvas.grid(row=0, column=1, rowspan=3)
 	
-	def initsidebar(self):
-		frame = Frame(self.master)
-		frame.grid(row=0, column=0)
-		
-		beginlabel = Label(frame, text="Begin Year")
-		self.beginscale = Scale(frame, from_=1960, to=2015, orient=HORIZONTAL)
+	def initlinewindow(self):
+		self.linewindow = Toplevel(self.master)
+
+		frame1 = Frame(master = self.linewindow)
+
+		beginlabel = Label(frame1, text="Begin Year")
+		self.beginscale = Scale(frame1, from_=1960, to=2015, orient=HORIZONTAL)
 		self.beginscale.set(1960)
 		beginlabel.pack()
 		self.beginscale.pack()
 
-		endlabel = Label(frame, text="End Year",)
-		self.endscale = Scale(frame, from_=1960, to=2015, orient=HORIZONTAL)
+		endlabel = Label(frame1, text="End Year",)
+		self.endscale = Scale(frame1, from_=1960, to=2015, orient=HORIZONTAL)
 		self.endscale.set(2015)
 		endlabel.pack()
 		self.endscale.pack()
 
-		countrybutton = Button(frame, text="Select Country", command=self.opencountrydialog)
+		countrybutton = Button(frame1, text="Select Country", command=self.opencountrydialog)
 		self.country = StringVar()
-		countrylabel = Label(frame, textvariable=self.country)
+		countrylabel = Label(frame1, textvariable=self.country)
 		countrybutton.pack()
 		countrylabel.pack()
 
-		statbutton = Button(frame, text="Select Statistic", command=self.openstatdialog)
+		statbutton = Button(frame1, text="Select Statistic", command=self.openstatdialog)
 		self.stat = StringVar()
-		statlabel = Label(frame, textvariable=self.stat)
+		statlabel = Label(frame1, textvariable=self.stat)
 		statbutton.pack()
 		statlabel.pack()
 
-		graphbutton = Button(frame, text="Line Graph!", command=self.gengraph)
+		graphbutton = Button(frame1, text="Graph!", command=self.gengraph)
 		graphbutton.pack()
 
-		scatterbutton = Button(frame, text="Scatter End Year", command=self.gengraph)
+		frame1.grid(row=0, column=0)
+
+
+
+
+
+	def initsidebar(self):
+		frame = Frame(self.master)
+		frame.grid(row=0, column=0)
+
+		graphbutton = Button(frame, text="Line Graph", command=self.initlinewindow)
+		graphbutton.pack()
+
+		scatterbutton = Button(frame, text="Scatter Year", command=self.gengraph)
 		scatterbutton.pack()
 
 		scattercountrybutton = Button(frame, text="Scatter Country", command=self.gengraph)
