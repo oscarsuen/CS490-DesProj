@@ -3,7 +3,6 @@ from tkinter import *
 
 root = Tk()
 
-logo = PhotoImage(file="../graphs/image.gif")
 w1 = Label(master = root, image=logo).grid(row=1, column=0)
 explanation = "Hello World"
 

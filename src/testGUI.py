@@ -43,21 +43,35 @@ canvas = FigureCanvasTkAgg(f, master=root)
 canvas.show()
 canvas.get_tk_widget().grid(row=1,column=1, padx=2, pady=2, rowspan=5, columnspan=5)
 #canvas.get_tk_widget().pack(side=Tk.TOP, fill=Tk.BOTH, expand=1)
-buttonpanel = Tk.Frame(master=root).grid(row=0,column=0)
+#root = Tk.Frame(master=root).grid(row=0,column=0)
 
-canvas._tkcanvas.grid(row=1,column=0,padx=2, pady=2, rowspan=5, columnspan=5)
+canvas._tkcanvas.grid(row=1,column=0,padx=2, pady=2, rowspan=5, columnspan=7)
 #canvas._tkcanvas.pack(side=Tk.TOP, fill=Tk.BOTH, expand=1)
 
-button = Tk.Button(master=buttonpanel, text='Quit', command=sys.exit)
-button.grid(row=0,column=0, padx=2, pady=2)
+button = Tk.Button(master=root, text='Quit', command=sys.exit)
+button.grid(row=0,column=6, padx=2, pady=2)
 
 def test():
 	print("hi")
 
 
-w2 = Tk.Button(master=buttonpanel, 
-           padx = 5, 
-           text="ey",
+w1 = Tk.Button(master=root, 
+           text="country line",
+           command = test).grid(row=0, column=1)
+w2 = Tk.Button(master=root, 
+           text="scatter year",
+           command = test).grid(row=0, column=2)
+w3 = Tk.Button(master=root, 
+           text="scatter country",
+           command = test).grid(row=0, column=3)
+w4 = Tk.Button(master=root, 
+           text="scatter total",
+           command = test).grid(row=0, column=4)
+s1 = Tk.Button(master=root, 
+           text="search countries",
+           command = test).grid(row=0, column=5)
+s2 = Tk.Button(master=root, 
+           text="search statistics",
            command = test).grid(row=0, column=1)
 
 Tk.mainloop()
