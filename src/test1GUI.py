@@ -21,6 +21,12 @@ class MainApplication:
 		coundia = CountryDialog(self.newwindow, self)
 
 	def openstatdialog(self):
+		self.curr = 1
+		self.newwindow2 = Toplevel(self.master)
+		statdia = StatDialog(self.newwindow2, self)
+
+	def openstat2dialog(self):
+		self.curr = 2
 		self.newwindow2 = Toplevel(self.master)
 		statdia = StatDialog(self.newwindow2, self)
 
@@ -40,7 +46,15 @@ class MainApplication:
 		self.canvas._tkcanvas.grid(row=0, column=1, rowspan=3)
 
 	def genscatter():
-		s1 = self.
+		info = [self.beginscale.get(), self.scode, self.scode2]
+		print (info)
+		self.f.clf()
+		self.f = Figure(figsize=(8, 6), dpi=100)
+		self.a = self.f.add_subplot(111)
+		generate("scatter", info, self.a)
+		self.canvas = FigureCanvasTkAgg(self.f, master=self.master)
+		self.canvas.show()
+		self.canvas.get_tk_widget().pack(side=TOP, fill=BOTH, expand=1)
 	
 	def initcanvas(self):
 		self.f = Figure(figsize=(8, 6), dpi=100)
@@ -56,6 +70,8 @@ class MainApplication:
 		self.linewindow = Toplevel(self.master)
 
 		frame1 = Frame(master = self.linewindow)
+
+		frame1.grid(row=0, column=0)
 
 		beginlabel = Label(frame1, text="Begin Year")
 		self.beginscale = Scale(frame1, from_=1960, to=2015, orient=HORIZONTAL)
@@ -81,10 +97,10 @@ class MainApplication:
 		statbutton.pack()
 		statlabel.pack()
 
-		graphbutton = Button(frame1, text="Graph!", command=self.gengraph)
+		graphbutton = Button(frame1, text="Graph!", command=self.genscatter)
 		graphbutton.pack()
 
-		frame1.grid(row=0, column=0)
+		
 
 	def initscatterwindow(self):
 
@@ -93,18 +109,18 @@ class MainApplication:
 		frame2 = Frame(master = self.scatterwindow)
 
 		beginlabel1 = Label(frame2, text="Year")
-		self.beginscale1 = Scale(frame2, from_=1960, to=2015, orient=HORIZONTAL)
-		self.beginscale1.set(1960)
+		self.beginscale = Scale(frame2, from_=1960, to=2015, orient=HORIZONTAL)
+		self.beginscale.set(1960)
 		beginlabel1.pack()
-		self.beginscale1.pack()
+		self.beginscale.pack()
 
-		countrybutton1 = Button(frame2, text="Select Statistic 1", command=self.opencountrydialog)
-		self.stat1 = StringVar()
-		countrylabel1 = Label(frame2, textvariable=self.stat1)
+		countrybutton1 = Button(frame2, text="Select Statistic 1", command=self.openstatdialog)
+		self.stat = StringVar()
+		countrylabel1 = Label(frame2, textvariable=self.stat)
 		countrybutton1.pack()
 		countrylabel1.pack()
 
-		statbutton1 = Button(frame2, text="Select Statistic 2", command=self.openstatdialog)
+		statbutton1 = Button(frame2, text="Select Statistic 2", command=self.openstat2dialog)
 		self.stat2 = StringVar()
 		statlabel1 = Label(frame2, textvariable=self.stat2)
 		statbutton1.pack()

@@ -42,6 +42,10 @@ class StatDialog():
 
 	def doubleclick(self, event):
 		item = self.table.item(self.table.focus())
-		self.top.scode=item['values'][0]
-		self.top.stat.set(item['values'][2])
+		if(self.top.curr == 1):
+			self.top.scode=item['values'][0]
+			self.top.stat.set(item['values'][2])
+		else:
+			self.top.scode2=item['values'][0]
+			self.top.stat2.set(item['values'][2])
 		self.master.destroy()
