@@ -20,16 +20,16 @@ Run `python3 path/to/src/main.py`
 #How to Use
 Click one of the buttons on the left to select a type of graph to plot
 - Line Graph
--- Graph of 1 statistic for 1 country over a time range
+  - Graph of 1 statistic for 1 country over a time range
 - Scatter Year
--- Scatter plot of 2 statistics in a year
+  - Scatter plot of 2 statistics in a year
 - Scatter Country
--- Scatter plot of 2 statistics for a country
+  - Scatter plot of 2 statistics for a country
 - Scatter Total
--- Scatter plot of all data points for 2 statistics
+  - Scatter plot of all data points for 2 statistics
 
 In the dialog box that comes up, click on Choose Country or Choose Statistic to choose a country or statistic.
 
 Choose a country or statistic by searching in the search box and then double clicking the result you want.
 
-When all fields are entered, clike Graph!
+When all fields are entered, click Graph!
