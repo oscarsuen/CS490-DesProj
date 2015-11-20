@@ -52,7 +52,7 @@ class MainApplication:
 		self.f = Figure(figsize=(8, 6), dpi=100)
 		self.a = self.f.add_subplot(111)
 		#generate("scatter", info, self.a) 
-		generate("line", [2014, "NY.GDP.PCAP.KD", "FP.CPI.TOTL.ZG"], self.a)
+		generate("line", [1960, 2014, "USA", "NY.GDP.MKTP.KD"], self.a)
 		self.canvas = FigureCanvasTkAgg(self.f, master=self.master)
 		self.canvas.show()
 		self.canvas._tkcanvas.grid(row=0, column=1, rowspan=3)
