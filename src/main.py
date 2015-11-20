@@ -34,7 +34,7 @@ class MainApplication:
 		b = self.beginscale
 		e = self.endscale
 		info = [b.get(), e.get(), self.ccode, self.scode]
-		print(info)
+		#print(info)
 		self.f.clf()
 		self.f = Figure(figsize=(8, 6), dpi=100)
 		self.a = self.f.add_subplot(111)
@@ -47,7 +47,7 @@ class MainApplication:
 
 	def genscatter(self):
 		info = [self.beginscale.get(), self.scode, self.scode2]
-		print (info)
+		#print (info)
 		self.f.clf()
 		self.f = Figure(figsize=(8, 6), dpi=100)
 		self.a = self.f.add_subplot(111)
@@ -58,7 +58,7 @@ class MainApplication:
 
 	def genscattertotal(self):
 		info = [self.scode, self.scode2]
-		print (info)
+		#print (info)
 		self.f.clf()
 		self.f = Figure(figsize=(8, 6), dpi=100)
 		self.a = self.f.add_subplot(111)
@@ -69,7 +69,7 @@ class MainApplication:
 
 	def gencountryscatter(self):
 		info = [self.ccode, self.scode, self.scode2]
-		print (info)
+		#print (info)
 		self.f.clf()
 		self.f = Figure(figsize=(8, 6), dpi=100)
 		self.a = self.f.add_subplot(111)
