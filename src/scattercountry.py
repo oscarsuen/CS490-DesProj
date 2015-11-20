@@ -1,5 +1,6 @@
 from database import getdata
 import matplotlib
+from textwrap import fill
 
 def sql(info):
 	result1 = "SELECT * FROM data WHERE `Country Code`='"+info[0]+"' AND `Indicator Code`='"+info[1]+"'"
@@ -17,9 +18,9 @@ def points(array):
 
 def plot(country, stat1, stat2, points, figure):
 	figure.scatter([i[0] for i in points],[i[1] for i in points])
-	figure.set_xlabel(stat1)
-	figure.set_ylabel(stat2)
-	figure.set_title(stat1+" vs. "+stat2+" in "+country)
+	figure.set_xlabel(fill(stat1,55).replace("$","\$"))
+	figure.set_ylabel(fill(stat2,55).replace("$","\$"))
+	figure.set_title(fill(stat1+" vs. "+stat2+" in "+country,55).replace("$","\$"))
 
 def scatterplotcountry(info, figure):
 	sequel = sql(info)

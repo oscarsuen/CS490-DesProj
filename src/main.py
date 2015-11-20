@@ -63,6 +63,7 @@ class MainApplication:
 		self.f = Figure(figsize=(8, 6), dpi=100)
 		self.a = self.f.add_subplot(111)
 		generate("scattertotal", info, self.a) 
+		self.f.tight_layout()
 		self.canvas = FigureCanvasTkAgg(self.f, master=self.master)
 		self.canvas.show()
 		self.canvas._tkcanvas.grid(row=0, column=1, rowspan=3)

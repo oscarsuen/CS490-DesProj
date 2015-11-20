@@ -1,5 +1,6 @@
 from database import getdata
 import matplotlib
+from textwrap import fill
 
 def sql(info):
 	columns = ""
@@ -15,9 +16,9 @@ def sql(info):
 def plot(info, result, figure):
 	figure.plot(range(info[0],info[1]),result[0][0][:-1])
 	figure.set_xlim(info[0],info[1]-1)
-	figure.set_xlabel('Year')
-	figure.set_ylabel(result[2][0][0])
-	figure.set_title(result[1][0][0]+" "+result[2][0][0])
+	figure.set_xlabel(fill("Year",55).replace("$","\$"))
+	figure.set_ylabel(fill(result[2][0][0],55).replace("$","\$"))
+	figure.set_title(fill(result[1][0][0]+" "+result[2][0][0],55).replace("$","\$"))
 
 def linegraph(info, figure):
 	plot(info, getdata(sql(info)), figure)
