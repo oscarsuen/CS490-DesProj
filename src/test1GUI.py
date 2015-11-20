@@ -55,6 +55,17 @@ class MainApplication:
 		self.canvas = FigureCanvasTkAgg(self.f, master=self.master)
 		self.canvas.show()
 		self.canvas._tkcanvas.grid(row=0, column=1, rowspan=3)
+
+	def gencountryscatter(self):
+		info = [self.ccode, self.scode, self.scode2]
+		print (info)
+		self.f.clf()
+		self.f = Figure(figsize=(8, 6), dpi=100)
+		self.a = self.f.add_subplot(111)
+		generate("scattercountry", info, self.a) 
+		self.canvas = FigureCanvasTkAgg(self.f, master=self.master)
+		self.canvas.show()
+		self.canvas._tkcanvas.grid(row=0, column=1, rowspan=3)
 	
 	def initcanvas(self):
 		self.f = Figure(figsize=(8, 6), dpi=100)
@@ -131,6 +142,35 @@ class MainApplication:
 
 		frame2.grid(row=0, column=0)
 
+	def initcountryscatterwindow(self):
+
+		self.scatterwindow = Toplevel(self.master)
+
+		frame3 = Frame(master = self.scatterwindow)
+
+		countrybutton = Button(frame3, text="Select Country", command=self.opencountrydialog)
+		self.country = StringVar()
+		countrylabel = Label(frame3, textvariable=self.country)
+		countrybutton.pack()
+		countrylabel.pack()
+
+		countrybutton1 = Button(frame3, text="Select Statistic 1", command=self.openstatdialog)
+		self.stat = StringVar()
+		countrylabel1 = Label(frame3, textvariable=self.stat)
+		countrybutton1.pack()
+		countrylabel1.pack()
+
+		statbutton1 = Button(frame3, text="Select Statistic 2", command=self.openstat2dialog)
+		self.stat2 = StringVar()
+		statlabel1 = Label(frame3, textvariable=self.stat2)
+		statbutton1.pack()
+		statlabel1.pack()
+
+		graphbutton = Button(frame3, text="Graph!", command=self.gencountryscatter)
+		graphbutton.pack()
+
+		frame3.grid(row=0, column=0)
+
 
 
 	def initsidebar(self):
@@ -143,7 +183,7 @@ class MainApplication:
 		scatterbutton = Button(frame, text="Scatter Year", command=self.initscatterwindow)
 		scatterbutton.pack()
 
-		scattercountrybutton = Button(frame, text="Scatter Country", command=self.gengraph)
+		scattercountrybutton = Button(frame, text="Scatter Country", command=self.initcountryscatterwindow)
 		scattercountrybutton.pack()
 
 		scattertotalbutton = Button(frame, text="Scatter Total", command=self.gengraph)
