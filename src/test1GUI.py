@@ -45,16 +45,17 @@ class MainApplication:
 		
 		self.canvas._tkcanvas.grid(row=0, column=1, rowspan=3)
 
-	def genscatter():
+	def genscatter(self):
 		info = [self.beginscale.get(), self.scode, self.scode2]
 		print (info)
 		self.f.clf()
 		self.f = Figure(figsize=(8, 6), dpi=100)
 		self.a = self.f.add_subplot(111)
-		generate("scatter", info, self.a)
+		#generate("scatter", info, self.a) 
+		generate("line", [2014, "NY.GDP.PCAP.KD", "FP.CPI.TOTL.ZG"], self.a)
 		self.canvas = FigureCanvasTkAgg(self.f, master=self.master)
 		self.canvas.show()
-		self.canvas.get_tk_widget().pack(side=TOP, fill=BOTH, expand=1)
+		self.canvas._tkcanvas.grid(row=0, column=1, rowspan=3)
 	
 	def initcanvas(self):
 		self.f = Figure(figsize=(8, 6), dpi=100)
@@ -97,7 +98,7 @@ class MainApplication:
 		statbutton.pack()
 		statlabel.pack()
 
-		graphbutton = Button(frame1, text="Graph!", command=self.genscatter)
+		graphbutton = Button(frame1, text="Graph!", command=self.gengraph)
 		graphbutton.pack()
 
 		
@@ -126,7 +127,7 @@ class MainApplication:
 		statbutton1.pack()
 		statlabel1.pack()
 
-		graphbutton = Button(frame2, text="Graph!", command=self.gengraph)
+		graphbutton = Button(frame2, text="Graph!", command=self.genscatter)
 		graphbutton.pack()
 
 		frame2.grid(row=0, column=0)
