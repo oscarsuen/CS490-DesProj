@@ -12,4 +12,4 @@ By Lily Friedberg and Oscar Suen
 3. Run `python3 path/to/src/main.py`
 
 ###Other Platforms
-If you need help setting this up on other platforms, email [osuen@exeter.edu](malto:osuen@exeter.edu) or [lfriedberg@exeter.edu](mailto:lfriedberg@exeter.edu).
+If you need help setting this up on other platforms, email [osuen@exeter.edu](mailto:osuen@exeter.edu) or [lfriedberg@exeter.edu](mailto:lfriedberg@exeter.edu).
