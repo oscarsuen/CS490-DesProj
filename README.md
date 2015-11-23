@@ -1,8 +1,9 @@
 # CSC490 Design Project
 By Lily Friedberg and Oscar Suen
 
+[Presentation](https://docs.google.com/presentation/d/19ork-czGEti05XBAs123To32FoGk_frYC2Jz4FzusAg/edit?usp=sharing)
+
 ##Package Requirements
-- tkinter (installed with OS X)
 - matplotlib
 
 ##How to Setup
